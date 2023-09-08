@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Article;
 use Illuminate\Contracts\Foundation\Application as FoundationApplication;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -16,6 +15,12 @@ class HomeController extends Controller
      */
     public function index(): Factory|Application|View|FoundationApplication
     {
-        return view('welcome');
+        $articles = Article::query()
+            ->select(['id', 'title'])
+            ->inRandomOrder()
+            ->limit(4)
+            ->get();
+
+        return view('index', compact('articles'));
     }
 }
