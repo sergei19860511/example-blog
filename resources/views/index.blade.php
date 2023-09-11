@@ -1,6 +1,6 @@
 @extends('layouts.header')
 
-{{--@section('title', 'Лучшие статьи')--}}
+@section('title', 'Лучшие статьи')
 @section('content')
     <main class="py-16 lg:py-20">
         <div class="container">
