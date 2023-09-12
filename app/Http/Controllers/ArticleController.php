@@ -15,4 +15,11 @@ class ArticleController extends Controller
 
         return view('articles', compact('articles'));
     }
+
+    public function show($id)
+    {
+        $article = Article::query()->find($id);
+
+        return view('article', compact('article'));
+    }
 }

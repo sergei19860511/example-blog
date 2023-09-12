@@ -28,7 +28,7 @@
                 <a href="index.html" rel="home">
                     <img alt="CutCode"
                          class="w-[148px] md:w-[201px] h-[36px] md:h-[50px] inline-block"
-                         src="images/nav/logo.svg"
+                         src="{{ asset('images/nav/logo.svg') }}"
                     >
                 </a>
             </div><!-- /.footer-logo -->
@@ -44,12 +44,12 @@
                     <a class="inline-flex items-center text-white hover:text-pink"
                        href="#" rel="nofollow noopener"
                        target="_blank">
-                        <img alt="YouTube" class="h-5 lg:h-6" src="images/icons/youtube.svg">
+                        <img alt="YouTube" class="h-5 lg:h-6" src="{{ asset('images/icons/youtube.svg') }}">
                         <span class="ml-2 lg:ml-3 text-xxs font-semibold">YouTube</span>
                     </a>
                     <a href="#" class="inline-flex items-center text-white hover:text-pink"
                        rel="nofollow noopener" target="_blank">
-                        <img alt="Telegram" class="h-5 lg:h-6" src="images/icons/telegram.svg">
+                        <img alt="Telegram" class="h-5 lg:h-6" src="{{ asset('images/icons/telegram.svg') }}">
                         <span class="ml-2 lg:ml-3 text-xxs font-semibold">Telegram</span>
                     </a>
                 </div>
