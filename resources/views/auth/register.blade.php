@@ -12,7 +12,9 @@
                 name="email"
                 required="required"
                 autofocus="autofocus"
-                placeholder="E-mail">
+                placeholder="E-mail"
+                value="{{ old('email') }}"
+            >
             @error('email')
                 <div class="mt-3 text-pink text-xxs xs:text-xs">{{ $message }}</div>
             @enderror
@@ -22,7 +24,9 @@
                 type="text"
                 name="name"
                 required="required"
-                placeholder="Имя">
+                placeholder="Имя"
+                value="{{ old('name') }}"
+            >
             @error('name')
                 <div class="mt-3 text-pink text-xxs xs:text-xs">{{ $message }}</div>
             @enderror
@@ -40,6 +44,7 @@
             <input
                 class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
                 type="password"
+                name="password_confirmation"
                 required="required"
                 placeholder="Повторите пароль">
 
