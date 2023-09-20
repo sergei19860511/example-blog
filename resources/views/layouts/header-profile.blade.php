@@ -70,7 +70,7 @@
                                 <a href="{{ route('profile') }}" class="flex items-center">
                                     <img alt="Username"
                                          class="w-11 h-11 rounded-full"
-                                         src="{{ asset('images/nav/logo.svg') }}"
+                                         src="{{ auth('web')->user()->imgUrl }}"
                                     >
                                     <span class="ml-3 text-xs md:text-sm font-bold text-white">
                                     {{ auth('web')->user()->name }}
@@ -119,7 +119,7 @@
     <div class="container">
         <div class="flex flex-wrap lg:flex-nowrap items-center">
             <div class="footer-logo order-0 basis-full sm:basis-1/2 lg:basis-1/3 shrink-0 text-center sm:text-left">
-                <a href="index.html" rel="home">
+                <a href="{{ route('home') }}" rel="home">
                     <img alt="CutCode"
                          class="w-[148px] md:w-[201px] h-[36px] md:h-[50px] inline-block"
                          src="images/nav/logo.svg"

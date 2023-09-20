@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\File;
 
 class ProfileRequest extends FormRequest
 {
@@ -23,7 +24,8 @@ class ProfileRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'min:3', 'max:25'],
-            'email' => ['required', 'email']
+            'email' => ['required', 'email'],
+            'img' => [File::image(), 'nullable']
         ];
     }
 }

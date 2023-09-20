@@ -19,18 +19,24 @@
                         <div class="flex items-center justify-between">
                             <div><input type="file" class="hidden">
                                 <div class="mt-2"><img
-                                        src="{{ asset('images/nav/logo.svg') }}"
+                                        src="{{ auth('web')->user()->imgUrl }}"
                                         alt="" class="rounded-full h-20 w-20 object-cover"></div>
                             </div>
-                            <div class="flex items-center justify-between">
+                            {{--<div class="flex items-center justify-between">
                                 <button class="w-full btn btn-pink mt-2 mr-2" type="button"> Загрузить</button>
                                 <button class="w-full btn btn-outline mt-2" type="button"> Удалить</button>
-                            </div>
+                            </div>--}}
                         </div>
+
+                        <input type="file" name="img">
+                        @error('img')
+                        <div class="mt-3 text-pink text-xxs xs:text-xs">{{ $message }}</div>
+                        @enderror
 
                         <input class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
                                type="text"
                                name="name"
+                               value="{{ auth('web')->user()->name }}"
                                required=""
                                placeholder="Имя">
                         @error('name')
@@ -40,6 +46,7 @@
                         <input class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
                                type="email"
                                name="email"
+                               value="{{ auth('web')->user()->email }}"
                                required=""
                                placeholder="E-mail">
                         @error('email')

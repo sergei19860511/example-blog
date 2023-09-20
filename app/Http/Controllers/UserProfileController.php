@@ -27,7 +27,10 @@ class UserProfileController extends Controller
      */
     public function edit(ProfileRequest $request)
     {
-        $data =  $request->validated();
+        $data = $request->validated();
+        if ($request->hasFile('img')) {
+            $data['img'] = $request->file('img')->store();
+        }
 
         if (auth('web')->user()->update($data)) {
             return redirect(route('profile'))->with(['status' => true]);
