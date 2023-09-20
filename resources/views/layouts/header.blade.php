@@ -17,7 +17,7 @@
 </head>
 <body class="antialiased">
 
-@include('shared.header_menu')
+@include('layouts.header-profile')
 
     @yield('content')
 

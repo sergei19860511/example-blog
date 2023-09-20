@@ -15,8 +15,6 @@
 
     @vite('resources/js/app.js')
 
-    <link rel="stylesheet" href="compiled/css/app.css">
-    <script src="compiled/js/app.js"></script>
 </head>
 <body>
 <main class="bg-darkblue text-white md:min-h-screen md:flex md:items-center md:justify-center py-16 lg:py-20">

@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
-Route::get('/article/{id}', [ArticleController::class, 'show'])->name('show_article')
-->middleware(['auth', 'verified']);
+Route::get('/article/{id}', [ArticleController::class, 'show'])->name('show_article');
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/profile', [\App\Http\Controllers\UserProfileController::class, 'showProfile'])->name('profile')
+        ->middleware('verified');
+    Route::post('/profile_handle', [\App\Http\Controllers\UserProfileController::class, 'edit'])->name('profile_handle');
 });
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
@@ -35,7 +37,7 @@ Route::get('/email/verify', function () {
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
 
-    return redirect(route('home'));
+    return redirect(route('profile'));
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {

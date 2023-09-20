@@ -49,7 +49,7 @@ class AuthController extends Controller
         $data = $request->validated();
 
         if (auth('web')->attempt($data)) {
-            return redirect(route('home'));
+            return redirect(route('profile'));
         }
 
         return redirect(route('login'))->withErrors(['email' => 'Email не найден или данные не верны']);
