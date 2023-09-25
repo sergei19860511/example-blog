@@ -30,7 +30,7 @@
 
                         <input type="file" name="img">
                         @error('img')
-                        <div class="mt-3 text-pink text-xxs xs:text-xs">{{ $message }}</div>
+                            <div class="mt-3 text-pink text-xxs xs:text-xs">{{ $message }}</div>
                         @enderror
 
                         <input class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
@@ -62,23 +62,40 @@
                         @endif
 
                     </form>
-                    <form class="space-y-3" x-show="active === 2">
+
+                    <form action="{{ route('profile_reset_password') }}" method="POST" class="space-y-3" x-show="active === 2">
+                        @csrf
                         <input class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
                                type="password"
+                               name="old_password"
                                required=""
                                autocomplete="current-password"
-                               placeholder="Текущий пароль"
-                        >
+                               placeholder="Текущий пароль">
+                        @error('old_password')
+                            <div class="mt-3 text-pink text-xxs xs:text-xs">{{ $message }}</div>
+                        @enderror
 
                         <input
                             class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
-                            type="password" required="" autocomplete="new-password" placeholder="Новый пароль"
-                        >
+                            type="password"
+                            name="password"
+                            required=""
+                            autocomplete="new-password"
+                            placeholder="Новый пароль">
+                        @error('password')
+                            <div class="mt-3 text-pink text-xxs xs:text-xs">{{ $message }}</div>
+                        @enderror
 
                         <input
                             class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
-                            type="password" required="" autocomplete="new-password" placeholder="Повторите пароль"
-                        >
+                            type="password"
+                            name="password_confirmation"
+                            required=""
+                            autocomplete="new-password"
+                            placeholder="Повторите пароль">
+                        @error('password_confirmation')
+                            <div class="mt-3 text-pink text-xxs xs:text-xs">{{ $message }}</div>
+                        @enderror
 
                         <button class="w-full btn btn-pink" type="submit"> Сменить пароль</button>
 

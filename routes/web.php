@@ -13,9 +13,10 @@ Route::get('/article/{id}', [ArticleController::class, 'show'])->name('show_arti
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/profile', [\App\Http\Controllers\UserProfileController::class, 'showProfile'])->name('profile')
+    Route::get('/profile/', [\App\Http\Controllers\UserProfileController::class, 'showProfile'])->name('profile')
         ->middleware('verified');
     Route::post('/profile_handle', [\App\Http\Controllers\UserProfileController::class, 'edit'])->name('profile_handle');
+    Route::post('/profile_reset_password', [\App\Http\Controllers\UserProfileController::class, 'resetPassword'])->name('profile_reset_password');
 });
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
