@@ -19,10 +19,11 @@ class HomeController extends Controller
         $articles = Cache::get('articles');
         if (!$articles) {
             $articles = Article::query()
-                ->select(['id', 'title', 'user_id'])
+                ->select(['id', 'title', 'user_id', 'category_id'])
                 ->limit(6)
                 ->orderBy('id', 'DESC')
                 ->with('user')
+                ->with('category')
                 ->get();
 
             Cache::add('article', $articles);

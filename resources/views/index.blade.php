@@ -28,7 +28,7 @@
                                     <div class="flex flex-wrap gap-3 mt-7">
                                         <a href="#"
                                            class="grow xs:grow-0 py-2 px-4 rounded-[32px] bg-[#2A2B4E] text-white no-underline text-xxs sm:text-xs font-semibold whitespace-nowrap">
-                                            Категория 1
+                                            {{ $article->category->title }}
                                         </a>
                                     </div>
                                     <div class="flex flex-wrap sm:items-center justify-center sm:justify-between mt-8 sm:mt-10">

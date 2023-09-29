@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 Route::get('/article/{id}', [ArticleController::class, 'show'])->name('show_article');
+Route::get('/category/{category:slag}', \App\Http\Controllers\CategoryController::class)->name('show_category');
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

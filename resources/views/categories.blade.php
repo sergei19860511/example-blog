@@ -1,23 +1,20 @@
 @extends('layouts.header')
 
-@section('title', 'Все статьи')
+@section('title', 'Категория')
 @section('content')
 
     <main class="py-16 lg:py-20">
     <div class="container">
         <h1 class="text-[26px] sm:text-xl xl:text-[48px] 2xl:text-2xl font-black">
-            Статьи
+            Категория
         </h1>
 
         <div>
             <div class="flex flex-wrap gap-3 mt-7">
 
-                @foreach($categories as $category)
-                    <a href="{{ route('show_category', $category) }}"
-                       class="bg-pink grow xs:grow-0 py-2 px-4 rounded-[32px] bg-[#2A2B4E] text-white no-underline text-xxs sm:text-xs font-semibold whitespace-nowrap">
-                        {{ $category->title }}
-                    </a>
-                @endforeach
+               <div class="bg-pink grow xs:grow-0 py-2 px-4 rounded-[32px] bg-[#2A2B4E] text-white no-underline text-xxs sm:text-xs font-semibold whitespace-nowrap">
+                {{ $category->title }}
+               </div>
 
             </div>
         </div>
@@ -40,10 +37,9 @@
                             <h3 class="text-md md:text-lg 2xl:text-xl font-black">{{ $article->title }}</h3>
                             <div class="mt-auto">
                                 <div class="flex flex-wrap gap-3 mt-7">
-                                    <a href="#"
-                                       class="grow xs:grow-0 py-2 px-4 rounded-[32px] bg-[#2A2B4E] text-white no-underline text-xxs sm:text-xs font-semibold whitespace-nowrap">
+                                      <div class="grow xs:grow-0 py-2 px-4 rounded-[32px] bg-[#2A2B4E] text-white no-underline text-xxs sm:text-xs font-semibold whitespace-nowrap">
                                         {{ $article->category->title }}
-                                    </a>
+                                      </div>
                                 </div>
                                 <div class="flex flex-wrap sm:items-center justify-center sm:justify-between mt-8 sm:mt-10">
                                     <a class="btn btn-pink" href="{{ route('show_article', $article->id) }}">
